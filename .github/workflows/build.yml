@@ -38,10 +38,9 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - run: ./gradlew --no-daemon build
-      - run: ls -a
-      - run: find . -name "*.jar"
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
           name: build-artifacts
-          path: build/libs
+          path: versions/1.12.2/build/libs
+                versions/1.8.9/bulid/libs
