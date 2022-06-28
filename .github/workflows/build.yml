@@ -38,7 +38,7 @@ jobs:
             ${{ runner.os }}-gradle-
 
       - run: ./gradlew --no-daemon build
-              ls
+      - run: ls -a
       - name: Upload build artifacts
         uses: actions/upload-artifact@v2
         with:
