@@ -75,7 +75,7 @@ public class PatcherConfig extends Vigilant {
         type = PropertyType.SELECTOR, name = "Keyboard Layout",
         description = "The layout of your keyboard, used to fix input bugs accordingly.",
         category = "Bug Fixes", subcategory = "Linux",
-        options = {"QWERTY", "AZERTY"}
+        options = {"QWERTY", "BE AZERTY", "FR AZERTY"}
     )
     public static int keyboardLayout = 0;
 
@@ -264,6 +264,14 @@ public class PatcherConfig extends Vigilant {
         min = 15, max = 240
     )
     public static int unfocusedFPSAmount = 60;
+
+    @Property(
+        type = PropertyType.NUMBER, name = "Custom FPS Limit",
+        description = "Change the maximum FPS to a value that Minecraft doesn't normally allow for. Setting this to 0 will go back to the value set in Minecraft.",
+        category = "Miscellaneous", subcategory = "General",
+        max = Integer.MAX_VALUE
+    )
+    public static int customFpsLimit = 0;
 
     @Property(
         type = PropertyType.SWITCH, name = "Remove Ground Foliage",
@@ -833,14 +841,6 @@ public class PatcherConfig extends Vigilant {
     // SCREENS
 
     @Property(
-        type = PropertyType.SELECTOR, name = "Name History Style",
-        description = "Choose how Name History should appear.",
-        category = "Screens", subcategory = "General",
-        options = {"Open in a GUI", "Send in chat", "Popup in the top-right"}
-    )
-    public static int nameHistoryStyle = 2;
-
-    @Property(
         type = PropertyType.SWITCH, name = "Inventory Position",
         description = "Stop potion effects from shifting your inventory to the right.",
         category = "Screens", subcategory = "Inventory"
@@ -917,6 +917,13 @@ public class PatcherConfig extends Vigilant {
         category = "Screens", subcategory = "Chat"
     )
     public static boolean transparentChat;
+
+    @Property(
+        type = PropertyType.SWITCH, name = "Chat Background When Open",
+        description = "Add back the background when chat is open.",
+        category = "Screens", subcategory = "Chat"
+    )
+    public static boolean transparentChatOnlyWhenClosed;
 
     @Property(
         type = PropertyType.SWITCH, name = "Transparent Chat Input Field",
@@ -1237,12 +1244,6 @@ public class PatcherConfig extends Vigilant {
     // HIDDEN
 
     @Property(
-        type = PropertyType.NUMBER, name = "Custom FPS Limit",
-        category = "hidden", hidden = true
-    )
-    public static int customFpsLimit = 0;
-
-    @Property(
         type = PropertyType.SWITCH, name = "LabyMod Moment",
         description = "This is just a pseudo option to use as a true statement so LabyMod doesn't try to inject into something that doesn't exist.",
         category = "hidden", hidden = true
@@ -1278,6 +1279,7 @@ public class PatcherConfig extends Vigilant {
             addDependency("timestampsStyle", "timestamps");
             addDependency("secondsOnTimestamps", "timestamps");
             addDependency("imagePreviewWidth", "imagePreview");
+            addDependency("transparentChatOnlyWhenClosed", "transparentChat");
 
             Arrays.asList(
                 "slownessFovModifierFloat", "speedFovModifierFloat",
