@@ -549,6 +549,13 @@ public class PatcherConfig extends Vigilant {
     public static boolean removeViewBobbing;
 
     @Property(
+        type = PropertyType.SWITCH, name = "Remove Vertical Bobbing",
+        description = "While using View Bobbing, remove the vertical bobbing like in 1.14+.",
+        category = "Miscellaneous", subcategory = "General"
+    )
+    public static boolean removeVerticalViewBobbing;
+
+    @Property(
         type = PropertyType.SWITCH, name = "Remove Map Bobbing",
         description = "While using View Bobbing, remove the hand bobbing when holding a map.",
         category = "Miscellaneous", subcategory = "General"
@@ -1120,6 +1127,13 @@ public class PatcherConfig extends Vigilant {
         category = "Screens", subcategory = "Chat"
     )
     public static boolean safeChatClicks;
+
+    @Property(
+        type = PropertyType.SWITCH, name = "Safe Chat Clicks History",
+        description = "Adds commands sent from clicking chat messages to the chat history.",
+        category = "Screens", subcategory = "Chat"
+    )
+    public static boolean safeChatClicksHistory;
 
     @Property(
         type = PropertyType.SWITCH, name = "Smart Disconnect",
